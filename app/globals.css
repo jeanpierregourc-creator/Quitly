@@ -27,3 +27,42 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #1A2430; }
 ::-webkit-scrollbar-thumb { background: #00D4AA; border-radius: 3px; }
+
+/* Animations utilitaires */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-teal {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-teal {
+  animation: pulse-teal 2s ease-in-out infinite;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid #00D4AA;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(0, 212, 170, 0.2);
+  color: #E8EDF2;
+}
+
+/* Smooth transitions globales */
+a, button {
+  transition-property: opacity, transform, background-color, border-color, color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}

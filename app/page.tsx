@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CEDeviceRender from '@/components/ui/CEDeviceRender'
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 function StatCard({ value, label }: { value: string; label: string }) {
   return (
@@ -44,46 +45,56 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Texte */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6" style={{ backgroundColor: 'rgba(0,212,170,0.1)', color: '#00D4AA', border: '1px solid rgba(0,212,170,0.2)' }}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#00D4AA' }} />
-                Loquet breveté · IA comportementale · Programme 6 mois
-              </div>
+              <AnimateOnScroll delay={0}>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6" style={{ backgroundColor: 'rgba(0,212,170,0.1)', color: '#00D4AA', border: '1px solid rgba(0,212,170,0.2)' }}>
+                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#00D4AA' }} />
+                  Loquet breveté · IA comportementale · Programme 6 mois
+                </div>
+              </AnimateOnScroll>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ color: '#E8EDF2' }}>
-                La dernière cigarette{' '}
-                <span style={{ color: '#00D4AA' }}>que vous utiliserez.</span>
-              </h1>
+              <AnimateOnScroll delay={0.1}>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ color: '#E8EDF2' }}>
+                  La dernière cigarette{' '}
+                  <span style={{ color: '#00D4AA' }}>que vous utiliserez.</span>
+                </h1>
+              </AnimateOnScroll>
 
-              <p className="text-lg leading-relaxed mb-8" style={{ color: '#8A9BAE' }}>
-                Quitly combine une cigarette électronique connectée, un <strong style={{ color: '#E8EDF2' }}>loquet physique breveté</strong> et une <strong style={{ color: '#E8EDF2' }}>IA comportementale</strong> pour vous libérer du tabac en 6 mois — sans volonté de fer.
-              </p>
+              <AnimateOnScroll delay={0.2}>
+                <p className="text-lg leading-relaxed mb-8" style={{ color: '#8A9BAE' }}>
+                  Quitly combine une cigarette électronique connectée, un <strong style={{ color: '#E8EDF2' }}>loquet physique breveté</strong> et une <strong style={{ color: '#E8EDF2' }}>IA comportementale</strong> pour vous libérer du tabac en 6 mois — sans volonté de fer.
+                </p>
+              </AnimateOnScroll>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Link
-                  href="/commander"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:opacity-90 active:scale-95"
-                  style={{ backgroundColor: '#00D4AA', color: '#080E14' }}
-                >
-                  Commander — 130 €
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/programme"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium text-base transition-all hover:bg-opacity-80"
-                  style={{ backgroundColor: '#1A2430', color: '#E8EDF2', border: '1px solid #2A3A4A' }}
-                >
-                  Voir le programme
-                </Link>
-              </div>
+              <AnimateOnScroll delay={0.3}>
+                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                  <Link
+                    href="/commander"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:opacity-90 active:scale-95"
+                    style={{ backgroundColor: '#00D4AA', color: '#080E14' }}
+                  >
+                    Commander — 130 €
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/programme"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium text-base transition-all hover:bg-opacity-80"
+                    style={{ backgroundColor: '#1A2430', color: '#E8EDF2', border: '1px solid #2A3A4A' }}
+                  >
+                    Voir le programme
+                  </Link>
+                </div>
+              </AnimateOnScroll>
 
               {/* Stats */}
-              <div className="flex flex-wrap gap-6 pt-6 border-t" style={{ borderColor: '#1A2430' }}>
-                <StatCard value="6M" label="fumeurs en France" />
-                <StatCard value="80%" label="d'échecs classiques" />
-                <StatCard value="6 mois" label="vers l'arrêt complet" />
-              </div>
+              <AnimateOnScroll delay={0.4}>
+                <div className="flex flex-wrap gap-6 pt-6 border-t" style={{ borderColor: '#1A2430' }}>
+                  <StatCard value="6M" label="fumeurs en France" />
+                  <StatCard value="80%" label="d'échecs classiques" />
+                  <StatCard value="6 mois" label="vers l'arrêt complet" />
+                </div>
+              </AnimateOnScroll>
             </div>
 
             {/* Visuel produit */}
@@ -93,7 +104,9 @@ export default function HomePage() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-48 h-48 rounded-full" style={{ background: 'radial-gradient(circle, rgba(0,212,170,0.15) 0%, transparent 70%)' }} />
                 </div>
-                <CEDeviceRender size={120} className="relative z-10 drop-shadow-2xl" />
+                <div className="animate-float">
+                  <CEDeviceRender size={120} className="relative z-10 drop-shadow-2xl" />
+                </div>
               </div>
             </div>
           </div>
@@ -118,11 +131,13 @@ export default function HomePage() {
               { icon: '💊', stat: '5×', label: 'le fumeur essaie en moyenne avant de réussir' },
               { icon: '💸', stat: '2 400€', label: "coût annuel moyen d'un fumeur d'un paquet par jour" },
             ].map((item, i) => (
-              <div key={i} className="p-6 rounded-2xl text-center" style={{ backgroundColor: '#1A2430', border: '1px solid #2A3A4A' }}>
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <div className="text-3xl font-bold mb-2" style={{ color: '#00D4AA' }}>{item.stat}</div>
-                <p className="text-sm" style={{ color: '#8A9BAE' }}>{item.label}</p>
-              </div>
+              <AnimateOnScroll key={i} delay={i * 0.1}>
+                <div className="p-6 rounded-2xl text-center" style={{ backgroundColor: '#1A2430', border: '1px solid #2A3A4A' }}>
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#00D4AA' }}>{item.stat}</div>
+                  <p className="text-sm" style={{ color: '#8A9BAE' }}>{item.label}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -170,13 +185,15 @@ export default function HomePage() {
                 icon: '🔓',
               },
             ].map((phase, i) => (
-              <div key={i} className="relative p-8 rounded-2xl" style={{ backgroundColor: '#1A2430', border: `1px solid ${phase.color}30` }}>
-                <div className="text-5xl font-black mb-4 opacity-10" style={{ color: phase.color }}>{phase.phase}</div>
-                <div className="text-xs font-medium mb-2 uppercase tracking-widest" style={{ color: phase.color }}>{phase.weeks}</div>
-                <div className="text-2xl mb-2">{phase.icon}</div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#E8EDF2' }}>{phase.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#8A9BAE' }}>{phase.description}</p>
-              </div>
+              <AnimateOnScroll key={i} delay={i * 0.15}>
+                <div className="relative p-8 rounded-2xl" style={{ backgroundColor: '#1A2430', border: `1px solid ${phase.color}30` }}>
+                  <div className="text-5xl font-black mb-4 opacity-10" style={{ color: phase.color }}>{phase.phase}</div>
+                  <div className="text-xs font-medium mb-2 uppercase tracking-widest" style={{ color: phase.color }}>{phase.weeks}</div>
+                  <div className="text-2xl mb-2">{phase.icon}</div>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: '#E8EDF2' }}>{phase.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#8A9BAE' }}>{phase.description}</p>
+                </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -202,17 +219,19 @@ export default function HomePage() {
                   { label: 'Application iOS & Android', desc: 'Programme personnalisé, suivi quotidien, coaching intégré' },
                   { label: 'Bluetooth & USB-C', desc: 'Synchronisation automatique, recharge rapide' },
                 ].map((feat, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(0,212,170,0.15)' }}>
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#00D4AA' }}>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
+                  <AnimateOnScroll key={i} delay={i * 0.1}>
+                    <div className="flex gap-3 items-start">
+                      <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(0,212,170,0.15)' }}>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#00D4AA' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold" style={{ color: '#E8EDF2' }}>{feat.label}</div>
+                        <div className="text-xs mt-0.5" style={{ color: '#8A9BAE' }}>{feat.desc}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-sm font-semibold" style={{ color: '#E8EDF2' }}>{feat.label}</div>
-                      <div className="text-xs mt-0.5" style={{ color: '#8A9BAE' }}>{feat.desc}</div>
-                    </div>
-                  </div>
+                  </AnimateOnScroll>
                 ))}
               </div>
               <div className="flex flex-wrap gap-2">
@@ -253,18 +272,15 @@ export default function HomePage() {
 
           {/* Témoignages */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Testimonial
-              quote="Après 5 tentatives ratées, Quitly m'a fait comprendre que mon problème était le café du matin. En 3 mois, j'ai réduit de 70%. Le loquet change vraiment tout."
-              name="Marc" age={42} role="Cadre, Lyon"
-            />
-            <Testimonial
-              quote="L'app est bluffante. Elle m'a montré que je fumais surtout entre 14h et 16h au bureau. Je n'avais jamais fait le lien avec mon pic de stress."
-              name="Sophie" age={35} role="Infirmière, Paris"
-            />
-            <Testimonial
-              quote="J'étais sceptique sur l'IA. Mais les insights sont précis. Et le loquet physique, c'est le truc clé — je ne peux pas tricher avec moi-même."
-              name="Thomas" age={28} role="Développeur, Bordeaux"
-            />
+            {[
+              { quote: "Après 5 tentatives ratées, Quitly m'a fait comprendre que mon problème était le café du matin. En 3 mois, j'ai réduit de 70%. Le loquet change vraiment tout.", name: "Marc", age: 42, role: "Cadre, Lyon" },
+              { quote: "L'app est bluffante. Elle m'a montré que je fumais surtout entre 14h et 16h au bureau. Je n'avais jamais fait le lien avec mon pic de stress.", name: "Sophie", age: 35, role: "Infirmière, Paris" },
+              { quote: "J'étais sceptique sur l'IA. Mais les insights sont précis. Et le loquet physique, c'est le truc clé — je ne peux pas tricher avec moi-même.", name: "Thomas", age: 28, role: "Développeur, Bordeaux" },
+            ].map((t, i) => (
+              <AnimateOnScroll key={i} delay={i * 0.1}>
+                <Testimonial quote={t.quote} name={t.name} age={t.age} role={t.role} />
+              </AnimateOnScroll>
+            ))}
           </div>
 
           {/* Expert */}

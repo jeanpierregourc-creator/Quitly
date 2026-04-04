@@ -2,6 +2,26 @@ import type { Metadata } from 'next'
 import CEDeviceRender from '@/components/ui/CEDeviceRender'
 import ShopSection from '@/components/shop/ShopSection'
 
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Quitly Black Edition — Kit sevrage tabac",
+  "description": "Cigarette électronique connectée avec loquet physique breveté, IA comportementale et programme de sevrage 6 mois. Application iOS et Android incluse à vie.",
+  "brand": { "@type": "Brand", "name": "Quitly" },
+  "offers": {
+    "@type": "Offer",
+    "price": "130",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Organization", "name": "Quitly" }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "24"
+  }
+}
+
 export const metadata: Metadata = {
   title: 'Commander — Kit Quitly Black Edition 130€',
   description: 'Commandez votre kit Quitly : cigarette électronique connectée + loquet breveté + app IA à vie. 130€ TTC, livraison offerte en France, satisfait ou remboursé 30 jours.',
@@ -10,6 +30,7 @@ export const metadata: Metadata = {
 export default function CommanderPage() {
   return (
     <div className="min-h-screen pt-24 pb-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Titre */}
         <div className="text-center mb-12">

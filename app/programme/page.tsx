@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import CEDeviceRender from '@/components/ui/CEDeviceRender'
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 export const metadata: Metadata = {
   title: 'Comment ça marche — Programme sevrage Quitly',
@@ -14,16 +15,22 @@ export default function ProgrammePage() {
       <section className="relative pt-32 pb-20 text-center overflow-hidden">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.08) 0%, transparent 60%)' }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6" style={{ backgroundColor: 'rgba(0,212,170,0.1)', color: '#00D4AA', border: '1px solid rgba(0,212,170,0.2)' }}>
-            Certifié par 2 addictologues
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: '#E8EDF2' }}>
-            Un sevrage conçu autour de vous,<br />
-            <span style={{ color: '#00D4AA' }}>pas d&apos;un protocole générique.</span>
-          </h1>
-          <p className="text-xl max-w-2xl mx-auto" style={{ color: '#8A9BAE' }}>
-            Quitly analyse vos habitudes, vous les rend visibles, puis réduit progressivement votre consommation via un mécanisme physique breveté.
-          </p>
+          <AnimateOnScroll delay={0}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6" style={{ backgroundColor: 'rgba(0,212,170,0.1)', color: '#00D4AA', border: '1px solid rgba(0,212,170,0.2)' }}>
+              Certifié par 2 addictologues
+            </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={0.1}>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: '#E8EDF2' }}>
+              Un sevrage conçu autour de vous,<br />
+              <span style={{ color: '#00D4AA' }}>pas d&apos;un protocole générique.</span>
+            </h1>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={0.2}>
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#8A9BAE' }}>
+              Quitly analyse vos habitudes, vous les rend visibles, puis réduit progressivement votre consommation via un mécanisme physique breveté.
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -84,42 +91,44 @@ export default function ProgrammePage() {
                 quoteAuthor: 'Dr. Claire Moreau, Addictologue',
               },
             ].map((phase, i) => (
-              <div key={i} className={`relative flex flex-col md:flex-row items-start gap-8 mb-16 ${phase.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
-                {/* Dot central sur la timeline */}
-                <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 w-12 h-12 rounded-full items-center justify-center z-10 text-lg font-black" style={{ backgroundColor: '#080E14', border: `2px solid ${phase.color}`, color: phase.color }}>
-                  {phase.phase}
-                </div>
-
-                {/* Contenu */}
-                <div className={`flex-1 ${phase.side === 'right' ? 'md:text-right md:pr-20' : 'md:pl-20'}`}>
-                  {/* Mobile: numéro visible */}
-                  <div className="flex items-center gap-3 mb-4 md:hidden">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm" style={{ backgroundColor: '#080E14', border: `2px solid ${phase.color}`, color: phase.color }}>
-                      {phase.phase}
-                    </div>
-                    <span className="text-xs font-medium uppercase tracking-widest" style={{ color: phase.color }}>{phase.weeks}</span>
+              <AnimateOnScroll key={i} delay={i * 0.15}>
+                <div className={`relative flex flex-col md:flex-row items-start gap-8 mb-16 ${phase.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
+                  {/* Dot central sur la timeline */}
+                  <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 w-12 h-12 rounded-full items-center justify-center z-10 text-lg font-black" style={{ backgroundColor: '#080E14', border: `2px solid ${phase.color}`, color: phase.color }}>
+                    {phase.phase}
                   </div>
-                  <div className="hidden md:block text-xs font-medium uppercase tracking-widest mb-2" style={{ color: phase.color }}>{phase.weeks}</div>
 
-                  <div className="text-3xl mb-3">{phase.emoji}</div>
-                  <h2 className="text-3xl font-bold mb-4" style={{ color: '#E8EDF2' }}>{phase.title}</h2>
+                  {/* Contenu */}
+                  <div className={`flex-1 ${phase.side === 'right' ? 'md:text-right md:pr-20' : 'md:pl-20'}`}>
+                    {/* Mobile: numéro visible */}
+                    <div className="flex items-center gap-3 mb-4 md:hidden">
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm" style={{ backgroundColor: '#080E14', border: `2px solid ${phase.color}`, color: phase.color }}>
+                        {phase.phase}
+                      </div>
+                      <span className="text-xs font-medium uppercase tracking-widest" style={{ color: phase.color }}>{phase.weeks}</span>
+                    </div>
+                    <div className="hidden md:block text-xs font-medium uppercase tracking-widest mb-2" style={{ color: phase.color }}>{phase.weeks}</div>
 
-                  <ul className={`space-y-2 mb-6 ${phase.side === 'right' ? 'md:items-end' : ''}`}>
-                    {phase.details.map((d, j) => (
-                      <li key={j} className={`flex items-start gap-2 ${phase.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
-                        <span className="mt-1 flex-shrink-0" style={{ color: phase.color }}>●</span>
-                        <span className="text-sm" style={{ color: '#8A9BAE' }}>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <div className="text-3xl mb-3">{phase.emoji}</div>
+                    <h2 className="text-3xl font-bold mb-4" style={{ color: '#E8EDF2' }}>{phase.title}</h2>
 
-                  <blockquote className="p-4 rounded-xl italic text-sm" style={{ backgroundColor: '#1A2430', borderLeft: `3px solid ${phase.color}`, color: '#E8EDF2' }}>
-                    {phase.quote}
-                    <footer className="mt-2 text-xs not-italic" style={{ color: '#8A9BAE' }}>— {phase.quoteAuthor}</footer>
-                  </blockquote>
+                    <ul className={`space-y-2 mb-6 ${phase.side === 'right' ? 'md:items-end' : ''}`}>
+                      {phase.details.map((d, j) => (
+                        <li key={j} className={`flex items-start gap-2 ${phase.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
+                          <span className="mt-1 flex-shrink-0" style={{ color: phase.color }}>●</span>
+                          <span className="text-sm" style={{ color: '#8A9BAE' }}>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <blockquote className="p-4 rounded-xl italic text-sm" style={{ backgroundColor: '#1A2430', borderLeft: `3px solid ${phase.color}`, color: '#E8EDF2' }}>
+                      {phase.quote}
+                      <footer className="mt-2 text-xs not-italic" style={{ color: '#8A9BAE' }}>— {phase.quoteAuthor}</footer>
+                    </blockquote>
+                  </div>
+                  <div className="hidden md:block flex-1" /> {/* spacer côté opposé */}
                 </div>
-                <div className="hidden md:block flex-1" /> {/* spacer côté opposé */}
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -129,34 +138,38 @@ export default function ProgrammePage() {
       <section className="py-20" style={{ backgroundColor: '#0D1520' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#00D4AA' }}>Innovation brevetée</div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: '#E8EDF2' }}>
-                Le loquet physique :<br />
-                <span style={{ color: '#00D4AA' }}>impossible à ignorer</span>
-              </h2>
-              <p className="mb-6" style={{ color: '#8A9BAE' }}>
-                Contrairement aux applications qui ne proposent que du contenu, le loquet Quitly agit sur le mécanisme même de la CE. C&apos;est une contrainte physique douce — vous choisissez votre rythme, mais vous ne pouvez pas tricher inconsciemment.
-              </p>
-              <div className="space-y-4">
-                {[
-                  { icon: '⏱', title: 'Pause progressive', desc: 'Le loquet impose un délai croissant entre chaque taffée. De 5 minutes à 30 minutes sur 6 mois.' },
-                  { icon: '🆘', title: 'Mode urgence', desc: "2 à 3 taffées autorisées immédiatement en cas de craving intense. L'app enregistre et analyse." },
-                  { icon: '📜', title: 'Brevet déposé', desc: 'Mécanisme micro-électronique propriétaire. Aucun concurrent ne propose cette fonctionnalité.' },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 p-4 rounded-xl" style={{ backgroundColor: '#1A2430' }}>
-                    <span className="text-2xl">{item.icon}</span>
-                    <div>
-                      <div className="font-semibold mb-1" style={{ color: '#E8EDF2' }}>{item.title}</div>
-                      <div className="text-sm" style={{ color: '#8A9BAE' }}>{item.desc}</div>
+            <AnimateOnScroll delay={0} direction="left">
+              <div>
+                <div className="text-xs font-medium uppercase tracking-widest mb-4" style={{ color: '#00D4AA' }}>Innovation brevetée</div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: '#E8EDF2' }}>
+                  Le loquet physique :<br />
+                  <span style={{ color: '#00D4AA' }}>impossible à ignorer</span>
+                </h2>
+                <p className="mb-6" style={{ color: '#8A9BAE' }}>
+                  Contrairement aux applications qui ne proposent que du contenu, le loquet Quitly agit sur le mécanisme même de la CE. C&apos;est une contrainte physique douce — vous choisissez votre rythme, mais vous ne pouvez pas tricher inconsciemment.
+                </p>
+                <div className="space-y-4">
+                  {[
+                    { icon: '⏱', title: 'Pause progressive', desc: 'Le loquet impose un délai croissant entre chaque taffée. De 5 minutes à 30 minutes sur 6 mois.' },
+                    { icon: '🆘', title: 'Mode urgence', desc: "2 à 3 taffées autorisées immédiatement en cas de craving intense. L'app enregistre et analyse." },
+                    { icon: '📜', title: 'Brevet déposé', desc: 'Mécanisme micro-électronique propriétaire. Aucun concurrent ne propose cette fonctionnalité.' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4 p-4 rounded-xl" style={{ backgroundColor: '#1A2430' }}>
+                      <span className="text-2xl">{item.icon}</span>
+                      <div>
+                        <div className="font-semibold mb-1" style={{ color: '#E8EDF2' }}>{item.title}</div>
+                        <div className="text-sm" style={{ color: '#8A9BAE' }}>{item.desc}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="flex justify-center">
-              <CEDeviceRender size={100} />
-            </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.2} direction="right">
+              <div className="flex justify-center">
+                <CEDeviceRender size={100} />
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -164,10 +177,12 @@ export default function ProgrammePage() {
       {/* PERSONA — Marc */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4" style={{ color: '#E8EDF2' }}>Une journée avec Quitly</h2>
-            <p style={{ color: '#8A9BAE' }}>Marc, 42 ans, cadre lyonnais. 5 tentatives d&apos;arrêt ratées.</p>
-          </div>
+          <AnimateOnScroll delay={0}>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4" style={{ color: '#E8EDF2' }}>Une journée avec Quitly</h2>
+              <p style={{ color: '#8A9BAE' }}>Marc, 42 ans, cadre lyonnais. 5 tentatives d&apos;arrêt ratées.</p>
+            </div>
+          </AnimateOnScroll>
           <div className="space-y-4">
             {[
               { time: '07h30', event: 'Réveil', desc: 'Quitly lui montre ses stats de la nuit. Son craving du matin est identifié comme le plus intense.', icon: '🌅', active: true },
@@ -176,16 +191,18 @@ export default function ProgrammePage() {
               { time: '16h00', event: 'Pic de stress', desc: "Dossier difficile. Mode urgence activé — 2 taffées. L'app note le contexte pour adapter le programme.", icon: '⚡', active: false },
               { time: '20h00', event: 'Soirée', desc: '-30% vs hier. L\'app envoie un badge "Meilleure journée". Motivation préservée.', icon: '🏆', active: true },
             ].map((item, i) => (
-              <div key={i} className={`flex gap-4 p-5 rounded-xl transition-all ${item.active ? 'border' : ''}`} style={{ backgroundColor: '#1A2430', borderColor: item.active ? 'rgba(0,212,170,0.3)' : 'transparent' }}>
-                <div className="text-2xl">{item.icon}</div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-bold font-mono" style={{ color: '#00D4AA' }}>{item.time}</span>
-                    <span className="text-sm font-semibold" style={{ color: '#E8EDF2' }}>{item.event}</span>
+              <AnimateOnScroll key={i} delay={i * 0.08}>
+                <div className={`flex gap-4 p-5 rounded-xl transition-all ${item.active ? 'border' : ''}`} style={{ backgroundColor: '#1A2430', borderColor: item.active ? 'rgba(0,212,170,0.3)' : 'transparent' }}>
+                  <div className="text-2xl">{item.icon}</div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-sm font-bold font-mono" style={{ color: '#00D4AA' }}>{item.time}</span>
+                      <span className="text-sm font-semibold" style={{ color: '#E8EDF2' }}>{item.event}</span>
+                    </div>
+                    <p className="text-sm" style={{ color: '#8A9BAE' }}>{item.desc}</p>
                   </div>
-                  <p className="text-sm" style={{ color: '#8A9BAE' }}>{item.desc}</p>
                 </div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

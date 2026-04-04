@@ -1,6 +1,38 @@
 import type { Metadata } from 'next'
 import FAQAccordion from '@/components/faq/FAQAccordion'
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne le loquet physique Quitly ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Le loquet Quitly est un mécanisme micro-électronique qui impose un délai progressif entre chaque utilisation de la cigarette électronique, communiquant via Bluetooth avec l'application." }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps dure le programme Quitly ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Le programme complet dure 6 mois : 2 semaines d'observation, 2 semaines de conscientisation, puis 5 mois de réduction progressive vers l'arrêt complet." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quitly est-il remboursable ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Quitly offre une garantie satisfait ou remboursé de 30 jours. Le remboursement est effectué sous 5 à 7 jours ouvrés via le mode de paiement initial." }
+    },
+    {
+      "@type": "Question",
+      "name": "L'application Quitly est-elle compatible iPhone et Android ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'application Quitly est disponible sur iOS 14+ et Android 8.0+. La connexion Bluetooth 5.0 est requise." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quitly est-il conforme TPD2 ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Quitly est conforme à la Directive sur les Produits du Tabac (TPD2). Le dispositif porte les certifications CE, RoHS et Bluetooth SIG." }
+    }
+  ]
+}
+
 export const metadata: Metadata = {
   title: 'FAQ — Questions fréquentes Quitly',
   description: 'Toutes les réponses sur le produit Quitly, le programme de sevrage, la commande, la livraison et la réglementation TPD2.',
@@ -66,6 +98,7 @@ const faqData = [
 export default function FAQPage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero */}
       <section className="pt-32 pb-16 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
