@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://quitly-eight.vercel.app',
+  siteUrl: 'https://quitly-eight.vercel.app',
   generateRobotsTxt: false,
   exclude: ['/admin', '/admin/*', '/compte', '/compte/*', '/api/*'],
   robotsTxtOptions: {
