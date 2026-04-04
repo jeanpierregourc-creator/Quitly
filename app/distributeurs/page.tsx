@@ -67,30 +67,27 @@ export default function DistributeursPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="p-8 rounded-2xl" style={{ backgroundColor: '#1A2430', border: '1px solid #2A3A4A' }}>
-              <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-2xl font-bold mb-4" style={{ color: '#E8EDF2' }}>Une clientèle entièrement nouvelle</h3>
               <p className="mb-4" style={{ color: '#8A9BAE' }}>
-                Vos clients actuels sont des vapoteurs. Les clients Quitly sont des <strong style={{ color: '#E8EDF2' }}>fumeurs qui veulent arrêter</strong> — ils ne viennent pas chez vous aujourd&apos;hui.
+                Vos clients actuels sont des vapoteurs. Les clients Quitly sont des <strong style={{ color: '#E8EDF2' }}>fumeurs qui veulent arrêter</strong>, ils ne viennent pas chez vous aujourd&apos;hui.
               </p>
               <p style={{ color: '#8A9BAE' }}>
                 Référencer Quitly, c&apos;est ouvrir votre boutique à un marché de <strong style={{ color: '#E8EDF2' }}>6 millions de personnes</strong> qui cherchent activement une solution.
               </p>
             </div>
             <div className="p-8 rounded-2xl" style={{ backgroundColor: '#1A2430', border: '1px solid #2A3A4A' }}>
-              <div className="text-4xl mb-4">📦</div>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#E8EDF2' }}>Kit clé en main — zéro gestion</h3>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#E8EDF2' }}>Kit partenaire complet</h3>
               <ul className="space-y-3">
                 {[
-                  'Pitch vendeur complet + formation produit',
+                  'Pitch vendeur + formation produit',
                   'QR code dédié à votre boutique (tracking)',
-                  'SAV géré par Quitly — 48h de réponse garantie',
+                  'SAV géré par Quitly, 48h de réponse garantie',
                   'Stock en consignation disponible',
                   'Support marketing (PLV, affiches, fiches produit)',
+                  'Liquides fournis par Moonshiners, notre partenaire fabricant',
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#00D4AA' }}>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
+                  <li key={i} className="flex items-start gap-3 text-sm">
+                    <div className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#00D4AA' }} />
                     <span style={{ color: '#E8EDF2' }}>{item}</span>
                   </li>
                 ))}

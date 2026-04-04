@@ -16,9 +16,9 @@ export default function ProgrammePage() {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.08) 0%, transparent 60%)' }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll delay={0}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6" style={{ backgroundColor: 'rgba(0,212,170,0.1)', color: '#00D4AA', border: '1px solid rgba(0,212,170,0.2)' }}>
-              Certifié par 2 addictologues
-            </div>
+            <p className="text-xs font-medium uppercase tracking-widest mb-6" style={{ color: '#00D4AA' }}>
+              Certifié par 3 addictologues
+            </p>
           </AnimateOnScroll>
           <AnimateOnScroll delay={0.1}>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: '#E8EDF2' }}>
@@ -56,7 +56,7 @@ export default function ProgrammePage() {
                   'Vous fumez normalement, Quitly apprend.',
                 ],
                 quote: '"La plupart des fumeurs ignorent à quel point leur consommation est liée à des déclencheurs précis."',
-                quoteAuthor: 'Dr. Claire Moreau, Addictologue',
+                quoteAuthor: 'Dr. Cutarella, Addictologue',
               },
               {
                 phase: '02',
@@ -72,7 +72,7 @@ export default function ProgrammePage() {
                   'Objectifs adaptés à votre rythme de vie.',
                 ],
                 quote: "\"Prendre conscience de ses automatismes, c'est déjà briser 50% de la dépendance comportementale.\"",
-                quoteAuthor: 'Dr. Antoine Lefèvre, Psychiatre addictologue',
+                quoteAuthor: 'Maxime Fevre, Addictologue partenaire',
               },
               {
                 phase: '03',
@@ -88,7 +88,7 @@ export default function ProgrammePage() {
                   'Arrêt complet visé à 6 mois.',
                 ],
                 quote: '"Le loquet Quitly est la première réponse mécanique à la dépendance gestuelle — souvent sous-estimée."',
-                quoteAuthor: 'Dr. Claire Moreau, Addictologue',
+                quoteAuthor: 'Dr. Cutarella, Addictologue',
               },
             ].map((phase, i) => (
               <AnimateOnScroll key={i} delay={i * 0.15}>
@@ -152,7 +152,7 @@ export default function ProgrammePage() {
                   {[
                     { icon: '⏱', title: 'Pause progressive', desc: 'Le loquet impose un délai croissant entre chaque taffée. De 5 minutes à 30 minutes sur 6 mois.' },
                     { icon: '🆘', title: 'Mode urgence', desc: "2 à 3 taffées autorisées immédiatement en cas de craving intense. L'app enregistre et analyse." },
-                    { icon: '📜', title: 'Brevet déposé', desc: 'Mécanisme micro-électronique propriétaire. Aucun concurrent ne propose cette fonctionnalité.' },
+                    { icon: '📜', title: 'Brevet déposé', desc: 'Mécanisme micro-électronique propriétaire. Notification ANSES planifiée 6 mois avant le lancement commercial.' },
                   ].map((item, i) => (
                     <div key={i} className="flex gap-4 p-4 rounded-xl" style={{ backgroundColor: '#1A2430' }}>
                       <span className="text-2xl">{item.icon}</span>
