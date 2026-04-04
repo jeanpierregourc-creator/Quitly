@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     siteName: 'Quitly',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Quitly — Sevrage tabac connecté' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Quitly — Sevrage tabac connecté' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Quitly — La dernière cigarette que vous utiliserez.',
     description: 'Sevrage tabac intelligent en 6 mois.',
-    images: ['/opengraph-image'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
