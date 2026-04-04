@@ -17,6 +17,7 @@ export default function Header() {
     { href: '/commander', label: 'Boutique' },
     { href: '/distributeurs', label: 'Distributeurs' },
     { href: '/faq', label: 'FAQ' },
+    { href: '/compte', label: 'Mon compte' },
   ]
 
   return (
