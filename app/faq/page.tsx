@@ -8,12 +8,12 @@ const faqJsonLd = {
     {
       "@type": "Question",
       "name": "Comment fonctionne le loquet physique Quitly ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Le loquet Quitly est un mécanisme micro-électronique qui impose un délai progressif entre chaque utilisation de la cigarette électronique, communiquant via Bluetooth avec l'application." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Le loquet Quitly est un mécanisme micro-électronique qui impose un délai progressif entre chaque utilisation de la cigarette électronique, communiquant via Bluetooth avec l'application. Un mode urgence permet 2 à 3 taffées immédiates en cas de craving intense." }
     },
     {
       "@type": "Question",
       "name": "Combien de temps dure le programme Quitly ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Le programme complet dure 6 mois : 2 semaines d'observation, 2 semaines de conscientisation, puis 5 mois de réduction progressive vers l'arrêt complet." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Le programme complet dure 6 mois : 2 semaines d'observation (Phase Observer), 2 semaines de conscientisation (Phase Conscientiser), puis 5 mois de réduction progressive vers l'arrêt complet (Phase Libérer)." }
     },
     {
       "@type": "Question",
@@ -23,12 +23,37 @@ const faqJsonLd = {
     {
       "@type": "Question",
       "name": "L'application Quitly est-elle compatible iPhone et Android ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'application Quitly est disponible sur iOS 14+ et Android 8.0+. La connexion Bluetooth 5.0 est requise." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'application Quitly est disponible sur iOS 14+ et Android 8.0+. La connexion Bluetooth 5.0 est requise, présente sur tous les smartphones depuis 2018." }
     },
     {
       "@type": "Question",
       "name": "Quitly est-il conforme TPD2 ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Quitly est conforme à la Directive sur les Produits du Tabac (TPD2). Le dispositif porte les certifications CE, RoHS et Bluetooth SIG." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Quitly est conforme à la Directive sur les Produits du Tabac (TPD2) de l'Union Européenne. Le dispositif porte les certifications CE, RoHS et Bluetooth SIG. Une notification ANSES est planifiée 6 mois avant le lancement commercial." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le délai de livraison ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Livraison par Colissimo en 3 à 5 jours ouvrés en France métropolitaine. Des délais légèrement plus longs s'appliquent pour la Corse, les DOM-TOM, la Belgique et la Suisse. Un numéro de suivi est envoyé par email dès l'expédition." }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien coûte le kit Quitly ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Le kit Quitly Black Edition est proposé à 130 € TTC. Il inclut la cigarette électronique connectée, un flacon de liquide starter et l'application iOS/Android à vie. La livraison est offerte en France métropolitaine." }
+    },
+    {
+      "@type": "Question",
+      "name": "Le programme Quitly est-il validé médicalement ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Le programme Quitly a été co-développé avec 3 addictologues partenaires dont le Dr. Cutarella et Maxime Fevre. Il s'appuie sur des protocoles de thérapie comportementale cliniquement validés. Quitly n'est pas un médicament et ne remplace pas un suivi médical." }
+    },
+    {
+      "@type": "Question",
+      "name": "Les liquides Quitly contiennent-ils de la nicotine ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oui. Les liquides Quitly contiennent de la nicotine, disponibles en plusieurs dosages (3mg, 6mg, 12mg). La réduction progressive via le loquet permet de diminuer l'exposition à la nicotine de façon contrôlée. La cigarette électronique contient de la nicotine, substance addictive." }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si je n'ai pas arrêté après 6 mois ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Si vous n'êtes pas encore prêt après 6 mois, le programme peut être prolongé. L'application reste accessible à vie. Vos données et insights vous appartiennent définitivement pour vous aider à continuer votre parcours." }
     }
   ]
 }

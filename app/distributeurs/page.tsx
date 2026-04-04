@@ -3,12 +3,31 @@ import DistributeurForm from '@/components/distributeurs/DistributeurForm'
 
 export const metadata: Metadata = {
   title: 'Distributeurs — Référencer Quitly dans votre boutique',
-  description: '38% de marge sur le dispositif, 18€ récurrents par client actif. Devenez distributeur Quitly et ouvrez votre boutique à une nouvelle clientèle.',
+  description: '38% de marge sur le dispositif, 18 € récurrents par client actif. Devenez distributeur Quitly et ouvrez votre boutique à une nouvelle clientèle.',
+}
+
+const distributeurJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Programme Distributeur Quitly",
+  "description": "Devenez distributeur Quitly et référencez la cigarette électronique connectée pour le sevrage tabagique dans votre boutique vape ou bien-être.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Quitly",
+    "url": "https://quitly-eight.vercel.app"
+  },
+  "areaServed": ["FR", "BE", "CH"],
+  "offers": {
+    "@type": "Offer",
+    "description": "Kit distributeur Quitly : 38% de marge sur le dispositif, 18 € de revenus récurrents par client actif, LTV annuelle estimée à 216 €.",
+    "priceCurrency": "EUR"
+  }
 }
 
 export default function DistributeursPage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(distributeurJsonLd) }} />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.06) 0%, transparent 60%)' }} />

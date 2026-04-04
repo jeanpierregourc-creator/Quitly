@@ -6,7 +6,7 @@ Disallow: /compte
 Disallow: /api
 
 # Host
-Host: http://localhost:3000
+Host: https://quitly-eight.vercel.app
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://quitly-eight.vercel.app/sitemap.xml

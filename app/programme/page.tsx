@@ -8,9 +8,42 @@ export const metadata: Metadata = {
   description: 'Découvrez le programme Quitly en 3 phases : Observer, Conscientiser, Libérer. Loquet breveté + IA comportementale pour arrêter de fumer en 6 mois.',
 }
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Comment arrêter de fumer avec Quitly en 6 mois",
+  "description": "Programme de sevrage tabagique en 3 phases utilisant un loquet physique breveté et une IA comportementale.",
+  "totalTime": "P6M",
+  "supply": [
+    { "@type": "HowToSupply", "name": "Kit Quitly Black Edition" },
+    { "@type": "HowToSupply", "name": "Application Quitly iOS/Android" }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Observer — Semaines 1 et 2",
+      "text": "La cigarette électronique collecte silencieusement vos habitudes de consommation : fréquence, horaires, durée et contexte. Aucune contrainte, vous fumez normalement pendant que Quitly apprend."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Conscientiser — Semaines 3 et 4",
+      "text": "L'application vous renvoie vos données comme un miroir. Vous visualisez vos patterns tabagiques et identifiez vos déclencheurs personnels. La prise de conscience naturelle déclenche la volonté de changer."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Libérer — Semaine 5 à 6 mois",
+      "text": "Le loquet physique réduit progressivement votre consommation. Un mode urgence permet 2 à 3 taffées en cas de craving intense. L'arrêt complet est visé à 6 mois, à votre rythme."
+    }
+  ]
+}
+
 export default function ProgrammePage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       {/* HERO */}
       <section className="relative pt-32 pb-20 text-center overflow-hidden">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.08) 0%, transparent 60%)' }} />

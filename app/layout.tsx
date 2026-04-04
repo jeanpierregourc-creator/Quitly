@@ -18,18 +18,20 @@ export const metadata: Metadata = {
   keywords: ['arrêter de fumer', 'sevrage tabac', 'cigarette électronique', 'aide sevrage', 'application sevrage tabac', 'loquet breveté', 'IA comportementale'],
   authors: [{ name: 'Quitly' }],
   creator: 'Quitly',
-  metadataBase: new URL('https://quitly.fr'),
+  metadataBase: new URL('https://quitly-eight.vercel.app'),
   openGraph: {
     title: 'Quitly — La dernière cigarette que vous utiliserez.',
     description: 'Sevrage tabac intelligent en 6 mois. Loquet breveté + IA comportementale + programme personnalisé.',
     type: 'website',
     locale: 'fr_FR',
     siteName: 'Quitly',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Quitly — Sevrage tabac connecté' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Quitly — La dernière cigarette que vous utiliserez.',
     description: 'Sevrage tabac intelligent en 6 mois.',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
