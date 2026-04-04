@@ -11,8 +11,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     const user = getUser()
-    // Admin = email admin@quitly.fr ou n'importe quel utilisateur connecté pour la démo
-    if (user) {
+    // Accès admin réservé exclusivement à admin@quitly.fr
+    if (user && user.email === 'admin@quitly.fr') {
       setAuthorized(true)
     } else {
       router.push('/admin/login')

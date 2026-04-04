@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
     if (user) {
       router.push('/admin')
     } else {
-      setError('Identifiants incorrects. Essayez admin@quitly.fr / admin123')
+      setError('Identifiants incorrects.')
     }
     setLoading(false)
   }
@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
             {loading ? 'Connexion...' : 'Accéder au back-office'}
           </button>
           <p className="text-center text-xs" style={{ color: '#8A9BAE' }}>
-            Démo : admin@quitly.fr / admin123
+            Accès réservé aux administrateurs Quitly
           </p>
         </form>
       </div>
