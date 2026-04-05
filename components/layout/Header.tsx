@@ -1,15 +1,22 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { getUser } from '@/lib/auth'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const user = getUser()
+    setIsAdmin(user?.email === 'admin@quitly.fr')
   }, [])
 
   const navLinks = [
@@ -53,6 +60,15 @@ export default function Header() {
 
         {/* CTA + menu mobile */}
         <div className="flex items-center gap-3">
+          {isAdmin && (
+            <Link
+              href="/admin"
+              className="hidden sm:inline-flex items-center px-3 py-2 rounded-lg text-xs font-semibold transition-all hover:opacity-90"
+              style={{ backgroundColor: '#1A2430', color: '#00D4AA', border: '1px solid rgba(0,212,170,0.3)' }}
+            >
+              Back-office
+            </Link>
+          )}
           <Link
             href="/commander"
             className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
