@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@supabase/supabase-js'
 
 // Schéma Zod — validation stricte des données entrantes
 const waitlistSchema = z.object({
@@ -35,6 +35,17 @@ export async function POST(request: NextRequest) {
 
     const { email, name, source } = result.data
 
+    // Initialisation du client Supabase au moment de l'appel (pas au chargement du module)
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Variables Supabase manquantes')
+      return NextResponse.json({ error: 'Erreur de configuration serveur.' }, { status: 500 })
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
     // Vérifier si l'email est déjà inscrit
     const { data: existing } = await supabase
       .from('waitlist')
@@ -53,7 +64,7 @@ export async function POST(request: NextRequest) {
 
     if (insertError) {
       console.error('Supabase insert error:', insertError)
-      return NextResponse.json({ error: 'Erreur lors de l\'inscription.' }, { status: 500 })
+      return NextResponse.json({ error: "Erreur lors de l'inscription." }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })
