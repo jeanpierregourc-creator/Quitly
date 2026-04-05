@@ -133,6 +133,15 @@ const faqData = [
       { q: "Puis-je l'utiliser dans les espaces publics ?", a: "L'usage de la cigarette électronique est soumis aux mêmes restrictions que la cigarette traditionnelle dans certains lieux. Elle est interdite dans les établissements scolaires, les transports en commun et peut être réglementée dans d'autres espaces. Renseignez-vous auprès des gestionnaires des lieux." },
     ],
   },
+  {
+    category: 'Sevrage tabac',
+    icon: '🔬',
+    questions: [
+      { q: 'Quelle est la meilleure méthode pour arrêter de fumer ?', a: "Selon la Haute Autorité de Santé (HAS), les méthodes les plus efficaces combinent substituts nicotiniques et accompagnement comportemental. Les patchs nicotiniques seuls offrent un taux de réussite de 15 à 25% à 6 mois (Cochrane Review, 2018). La varénicline atteint 30 à 35% mais présente des effets secondaires. Les approches qui traitent à la fois la dépendance physique et comportementale — comme le programme Quitly — visent des résultats supérieurs en agissant sur les deux dimensions simultanément." },
+      { q: "Est-ce que la cigarette électronique aide vraiment à arrêter de fumer ?", a: "L'ANSES reconnaît la cigarette électronique comme outil potentiel de réduction des risques tabagiques. Cependant, 68% des vapoteurs n'ont pas réussi à arrêter complètement le tabac (OFDT, 2023), car la CE classique remplace la nicotine sans traiter les habitudes comportementales. Quitly est conçu pour dépasser cette limite : le loquet breveté impose une réduction progressive, et l'IA comportementale cible les déclencheurs habituels (café, stress, repas)." },
+      { q: 'Comment fonctionne la dépendance comportementale au tabac ?', a: "La dépendance au tabac a deux dimensions : physique (la nicotine) et comportementale (les automatismes liés aux situations — café, stress, conduite). Cette seconde dimension est la principale cause d'échec des tentatives d'arrêt. La thérapie comportementale et cognitive (TCC), recommandée par la HAS, cible ces automatismes. Le programme Quitly intègre ces principes via l'analyse des données de consommation et une réduction progressive contextualisée." },
+    ],
+  },
 ]
 
 export default function FAQPage() {
