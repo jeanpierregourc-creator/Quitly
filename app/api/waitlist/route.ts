@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
+import { supabase } from '@/lib/supabase'
 
 // Schéma Zod — validation stricte des données entrantes
 const waitlistSchema = z.object({
@@ -34,13 +35,26 @@ export async function POST(request: NextRequest) {
 
     const { email, name, source } = result.data
 
-    // TODO: Sauvegarder en Supabase quand les clés sont configurées
-    // const { error } = await supabaseAdmin.from('waitlist').insert({ email, name, source })
+    // Vérifier si l'email est déjà inscrit
+    const { data: existing } = await supabase
+      .from('waitlist')
+      .select('email')
+      .eq('email', email)
+      .single()
 
-    console.log('Waitlist inscription:', { email, name, source })
+    if (existing) {
+      return NextResponse.json({ error: 'Cet email est déjà inscrit.' }, { status: 409 })
+    }
 
-    // TODO: Envoyer email de confirmation via Resend
-    // await resend.emails.send({ ... })
+    // Sauvegarder en Supabase
+    const { error: insertError } = await supabase
+      .from('waitlist')
+      .insert({ email, name, source: source ?? 'site' })
+
+    if (insertError) {
+      console.error('Supabase insert error:', insertError)
+      return NextResponse.json({ error: 'Erreur lors de l\'inscription.' }, { status: 500 })
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
