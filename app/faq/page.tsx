@@ -54,6 +54,21 @@ const faqJsonLd = {
       "@type": "Question",
       "name": "Que se passe-t-il si je n'ai pas arrêté après 6 mois ?",
       "acceptedAnswer": { "@type": "Answer", "text": "Si vous n'êtes pas encore prêt après 6 mois, le programme peut être prolongé. L'application reste accessible à vie. Vos données et insights vous appartiennent définitivement pour vous aider à continuer votre parcours." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la meilleure méthode pour arrêter de fumer ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Selon la Haute Autorité de Santé (HAS), les méthodes les plus efficaces combinent substituts nicotiniques et accompagnement comportemental. Les patchs nicotiniques seuls offrent un taux de réussite de 15 à 25% à 6 mois (Cochrane Review, 2018). La varénicline (Champix) atteint 30 à 35% mais présente des effets secondaires notables. Les approches qui traitent à la fois la dépendance physique à la nicotine ET la dépendance comportementale — comme le programme Quitly — visent des résultats supérieurs en agissant sur les deux dimensions simultanément." }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que la cigarette électronique aide vraiment à arrêter de fumer ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "L'ANSES reconnaît la cigarette électronique comme outil potentiel de réduction des risques tabagiques. Cependant, 68% des vapoteurs déclarent ne pas avoir réussi à arrêter complètement le tabac (OFDT, 2023), car la CE classique remplace la nicotine sans traiter les habitudes comportementales. Quitly est conçu pour dépasser cette limite : le loquet physique breveté impose une réduction progressive de la consommation, et l'IA comportementale identifie et cible les déclencheurs habituels (café, stress, repas) pour rompre les automatismes." }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne la dépendance comportementale au tabac ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La dépendance au tabac a deux dimensions : la dépendance physique à la nicotine (gérée par les substituts) et la dépendance comportementale (les automatismes associés à des situations — café, stress, conduite, repas). Cette seconde dimension est la principale cause d'échec des tentatives d'arrêt : le fumeur a brisé la dépendance physique mais pas les réflexes conditionnés. La thérapie comportementale et cognitive (TCC), recommandée par la HAS, cible ces automatismes. Le programme Quitly intègre ces principes via l'analyse des données de consommation et une réduction programmée contextualisée." }
     }
   ]
 }

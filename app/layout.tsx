@@ -52,16 +52,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Quitly",
-              "url": "https://quitly.fr",
-              "description": "Cigarette électronique connectée avec loquet breveté et IA comportementale pour le sevrage tabagique",
-              "email": "contact@quitly.fr",
-              "foundingDate": "2026",
-              "areaServed": "FR",
-              "sameAs": [
-                "https://instagram.com/quitly",
-                "https://tiktok.com/@quitly"
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "name": "Quitly",
+                  "url": "https://quitly-eight.vercel.app",
+                  "description": "Cigarette électronique connectée avec loquet breveté et IA comportementale pour le sevrage tabagique",
+                  "email": "contact@quitly.fr",
+                  "foundingDate": "2026",
+                  "areaServed": "FR",
+                  "sameAs": [
+                    "https://instagram.com/quitly",
+                    "https://tiktok.com/@quitly"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "name": "Quitly",
+                  "url": "https://quitly-eight.vercel.app",
+                  "description": "Ressources et dispositif pour arrêter de fumer en France",
+                  "inLanguage": "fr-FR"
+                }
               ]
             })
           }}

@@ -1,0 +1,24 @@
+# Quitly — Aide au sevrage tabagique
+> Quitly est un dispositif français de sevrage tabagique combinant une cigarette électronique connectée, un loquet physique breveté et une IA comportementale. Programme de 6 mois co-développé avec des addictologues.
+
+## Pages principales
+- / : Présentation du dispositif Quitly et de la problématique du sevrage tabac
+- /programme : Programme sevrage en 3 phases (Observer, Conscientiser, Libérer) sur 6 mois
+- /faq : Questions fréquentes sur le sevrage tabagique et le dispositif Quitly
+- /commander : Kit Quitly Black Edition à 130€
+
+## Ressources éducatives
+- /ressources/methodes-arret-tabac : Comparatif objectif des méthodes pour arrêter de fumer
+- /ressources/statistiques-tabac-france : Statistiques tabagisme en France 2025 (sources officielles)
+- /ressources/dependance-comportementale-tabac : Science de la dépendance comportementale au tabac
+
+## Experts
+- Dr. Cutarella, addictologue — co-développeur du programme Quitly
+- Maxime Fevre — co-développeur du programme Quitly
+
+## Données clés
+- 6 millions de fumeurs quotidiens en France (Santé Publique France, 2023)
+- 80% des tentatives d'arrêt échouent dans les 6 premiers mois (HAS, 2022)
+- Prix du kit : 130€ TTC, livraison offerte en France
+- Garantie satisfait ou remboursé 30 jours
+- Compatible iOS 14+ et Android 8.0+
