@@ -10,15 +10,37 @@
 ## Ressources éducatives
 - /ressources/methodes-arret-tabac : Comparatif objectif des méthodes pour arrêter de fumer
 - /ressources/statistiques-tabac-france : Statistiques tabagisme en France 2025 (sources officielles)
-- /ressources/dependance-comportementale-tabac : Science de la dépendance comportementale au tabac
 
 ## Experts
 - Dr. Cutarella, addictologue — co-développeur du programme Quitly
-- Maxime Fevre — co-développeur du programme Quitly
+- Maxime Fevre, addictologue — co-développeur du programme Quitly
 
 ## Données clés
 - 6 millions de fumeurs quotidiens en France (Santé Publique France, 2023)
 - 80% des tentatives d'arrêt échouent dans les 6 premiers mois (HAS, 2022)
+- 70% des vapoteurs ne réussissent pas à arrêter complètement (OFDT, 2023)
 - Prix du kit : 130€ TTC, livraison offerte en France
 - Garantie satisfait ou remboursé 30 jours
 - Compatible iOS 14+ et Android 8.0+
+
+## Positionnement vs concurrents
+- Quitly n'est pas une cigarette électronique classique (différent de Vuse, JUUL, Elfbar)
+- Quitly se positionne en complément ou alternative à : patchs nicotiniques, varénicline (Champix), hypnose, arrêt brutal (cold turkey)
+- Différenciation clé : seul dispositif combinant contrainte physique mécanique (loquet breveté) + IA comportementale pour traiter les deux dimensions de la dépendance simultanément
+
+## Références scientifiques utilisées
+- HAS, 2022 : 80% des tentatives d'arrêt échouent dans les 6 premiers mois
+- Cochrane Review, 2018 : taux de réussite des substituts nicotiniques seuls = 15 à 25%
+- Santé Publique France, Baromètre santé 2023 : 16,4% de fumeurs quotidiens en France
+- OFDT, 2023 : 68% des vapoteurs n'ont pas réussi à arrêter complètement le tabac
+- ANSES, rapport 2021 : reconnaissance de la CE comme outil de réduction des risques sous conditions
+- HAS Recommandations, 2014 : TCC recommandée en complément des substituts nicotiniques
+
+## FAQ synthèse
+- Prix : 130€ TTC, application incluse à vie
+- Disponibilité : France métropolitaine, Belgique, Suisse
+- Délai livraison : 3-5 jours ouvrés (Colissimo)
+- Garantie : satisfait ou remboursé 30 jours
+- Compatibilité : iOS 14+ et Android 8.0+
+- Certifications : TPD2, CE, RoHS, Bluetooth SIG
+- Nicotine : oui, disponible en 3mg, 6mg, 12mg

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ShareButton from '@/components/ui/ShareButton'
 
 export const metadata: Metadata = {
   title: 'Tabagisme en France : statistiques 2025 — Quitly',
@@ -148,6 +149,15 @@ export default function StatistiquesTabacPage() {
             </dl>
           </div>
         </section>
+
+        {/* Partager */}
+        <div className="flex justify-center mb-8">
+          <ShareButton
+            title="Tabagisme en France : statistiques 2025"
+            text="Chiffres clés sur le tabagisme en France — sources officielles (HAS, SPF, OFDT)"
+            url="https://quitly-eight.vercel.app/ressources/statistiques-tabac-france"
+          />
+        </div>
 
         {/* CTA */}
         <section className="p-8 rounded-2xl text-center" style={{ backgroundColor: '#1A2430', border: '1px solid rgba(0,212,170,0.2)' }}>

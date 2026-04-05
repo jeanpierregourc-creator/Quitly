@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ShareButton from '@/components/ui/ShareButton'
 
 export const metadata: Metadata = {
   title: 'Les méthodes pour arrêter de fumer : comparatif 2025 — Quitly',
@@ -191,6 +192,15 @@ export default function MethodesArretTabacPage() {
             </p>
           </div>
         </section>
+
+        {/* Partager */}
+        <div className="flex justify-center mb-8">
+          <ShareButton
+            title="Les méthodes pour arrêter de fumer : comparatif 2025"
+            text="Comparatif objectif des méthodes de sevrage tabac — taux de réussite, coûts, pour qui"
+            url="https://quitly-eight.vercel.app/ressources/methodes-arret-tabac"
+          />
+        </div>
 
         {/* CTA */}
         <section className="p-8 rounded-2xl text-center" style={{ backgroundColor: '#1A2430', border: '1px solid rgba(0,212,170,0.2)' }}>

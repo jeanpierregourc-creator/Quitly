@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quitly — Cigarette électronique connectée pour l'arrêt du tabac
 
-## Getting Started
+> Dispositif français de sevrage tabagique : loquet physique breveté + IA comportementale + programme 6 mois co-développé avec des addictologues.
 
-First, run the development server:
+**Site :** https://quitly-eight.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Le problème
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+80% des tentatives d'arrêt du tabac échouent dans les 6 premiers mois *(HAS, 2022)*.
+70% des vapoteurs restent piégés dans la dépendance à la cigarette électronique *(OFDT, 2023)*.
+Les outils existants traitent la dépendance physique à la nicotine mais ignorent la dépendance comportementale — les automatismes liés aux situations (café, stress, repas, conduite).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## La solution Quitly
 
-## Learn More
+Quitly combine trois éléments dans un seul dispositif :
 
-To learn more about Next.js, take a look at the following resources:
+1. **Loquet physique breveté** — mécanisme micro-électronique qui impose un délai progressif entre chaque utilisation. Il contrôle mécaniquement la consommation sans pouvoir être contourné inconsciemment.
+2. **IA comportementale** — collecte et analyse les patterns tabagiques (fréquence, horaires, contexte) pour générer des insights personnalisés et adapter le programme en temps réel.
+3. **Programme 6 mois en 3 phases** — Observer (semaines 1-2), Conscientiser (semaines 3-4), Libérer (semaine 5 à 6 mois). Co-développé avec le Dr. Cutarella et Maxime Fevre, addictologues.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Prix :** 130 € TTC · Livraison offerte en France · Satisfait ou remboursé 30 jours
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Stack technique
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Composant | Technologie |
+|---|---|
+| Framework | Next.js 16, React 19, TypeScript |
+| Styling | Tailwind CSS v4 |
+| Base de données | Supabase (PostgreSQL) |
+| Paiement | Stripe |
+| Déploiement | Vercel |
+| Conformité | TPD2, CE, RoHS, Bluetooth SIG |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Pages clés
+
+| Page | Description |
+|---|---|
+| `/` | Présentation du dispositif et du problème |
+| `/programme` | Programme sevrage 3 phases (JSON-LD HowTo) |
+| `/commander` | Kit Quitly Black Edition — 130€ |
+| `/faq` | FAQ sevrage tabagique (JSON-LD FAQPage) |
+| `/ressources/methodes-arret-tabac` | Comparatif objectif des méthodes de sevrage |
+| `/ressources/statistiques-tabac-france` | Statistiques tabagisme France 2025 (sources officielles) |
+| `/distributeurs` | Programme partenaires boutiques vape |
+
+---
+
+## Équipe
+
+Projet étudiant EM Lyon — 6 profils complémentaires (tech, hardware, supply chain, brand, commercial).
+Experts médicaux partenaires : Dr. Cutarella (addictologue), Maxime Fevre (addictologue).
+
+---
+
+## Contact
+
+contact@quitly.fr · [quitly-eight.vercel.app](https://quitly-eight.vercel.app)
