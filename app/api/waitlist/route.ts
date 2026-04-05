@@ -36,15 +36,10 @@ export async function POST(request: NextRequest) {
     const { email, name, source } = result.data
 
     // Initialisation du client Supabase au moment de l'appel (pas au chargement du module)
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-    if (!supabaseUrl || !supabaseKey) {
-      console.error('Variables Supabase manquantes')
-      return NextResponse.json({ error: 'Erreur de configuration serveur.' }, { status: 500 })
-    }
-
-    const supabase = createClient(supabaseUrl, supabaseKey)
+    const supabase = createClient(
+      'https://kcxmjdsyuxjdjbgogdmg.supabase.co',
+      'sb_publishable_pMdy4eDOB0zTD2-yPXL60g_Vv-itFkI'
+    )
 
     // Vérifier si l'email est déjà inscrit
     const { data: existing } = await supabase
