@@ -40,7 +40,11 @@ export async function POST(request: NextRequest) {
     const supabaseKey = process.env.SUPABASE_ANON_KEY
 
     if (!supabaseUrl || !supabaseKey) {
-      console.error('Variables Supabase manquantes')
+      console.error('Variables Supabase manquantes', {
+        hasUrl: !!supabaseUrl,
+        hasKey: !!supabaseKey,
+        allKeys: Object.keys(process.env).filter(k => k.includes('SUPA')),
+      })
       return NextResponse.json({ error: 'Erreur de configuration serveur.' }, { status: 500 })
     }
 
