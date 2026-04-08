@@ -63,7 +63,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   "areaServed": "FR",
                   "sameAs": [
                     "https://instagram.com/quitly",
-                    "https://tiktok.com/@quitly"
+                    "https://tiktok.com/@quitly",
+                    "https://www.linkedin.com/company/quitly-fr/"
                   ]
                 },
                 {
