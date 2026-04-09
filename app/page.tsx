@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CEDeviceRender from '@/components/ui/CEDeviceRender'
+import CEDevice3D from '@/components/ui/CEDevice3D'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 function Testimonial({ quote, name, age, role }: { quote: string; name: string; age: number; role: string }) {
@@ -91,13 +92,8 @@ export default function HomePage() {
             </div>
 
             <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-48 h-48 rounded-full" style={{ background: 'radial-gradient(circle, rgba(0,212,170,0.15) 0%, transparent 70%)' }} />
-                </div>
-                <div className="animate-float">
-                  <CEDeviceRender size={120} className="relative z-10 drop-shadow-2xl" />
-                </div>
+              <div className="animate-float">
+                <CEDevice3D className="drop-shadow-2xl" />
               </div>
             </div>
           </div>
