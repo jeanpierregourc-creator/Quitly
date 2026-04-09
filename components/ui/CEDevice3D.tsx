@@ -140,11 +140,11 @@ function QuitlyDevice() {
   })
 
   // ── MATÉRIAUX ──────────────────────────────────────────────
-  // Corps principal : gris métallique clair
+  // Corps : gunmetal clair comme la photo
   const bodyMat = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#2E3E50'),
-    metalness: 0.85,
-    roughness: 0.25,
+    color: new THREE.Color('#4A5A6A'),
+    metalness: 0.82,
+    roughness: 0.3,
   }), [])
 
   // Anneaux chrome brillant
@@ -317,27 +317,23 @@ function QuitlyDevice() {
         <meshStandardMaterial color="#5A6A7A" metalness={1} roughness={0.05} transparent opacity={0.6} />
       </mesh>
 
-      {/* Zone grip haut corps — petits points discrets */}
-      {Array.from({ length: 4 }).map((_, row) =>
-        Array.from({ length: 7 }).map((_, col) => (
-          <mesh key={`grip-${row}-${col}`} position={[-0.24 + col * 0.08, 0.65 - row * 0.1, 0.245]}>
-            <boxGeometry args={[0.03, 0.03, 0.006]} />
-            <primitive object={gripMat} />
-          </mesh>
-        ))
-      )}
+      {/* Zone grip haut corps — ligne subtile */}
+      <mesh position={[0, 0.72, 0.245]}>
+        <boxGeometry args={[0.55, 0.002, 0.003]} />
+        <meshStandardMaterial color="#00D4AA" emissive="#00D4AA" emissiveIntensity={0.8} />
+      </mesh>
 
       {/* ══════════════════════════════════
-          ÉCRAN OLED
+          ÉCRAN OLED — taille réduite
       ══════════════════════════════════ */}
       {/* Cadre écran */}
-      <mesh position={[0, -0.38, 0.245]}>
-        <boxGeometry args={[0.56, 1.32, 0.004]} />
+      <mesh position={[0, -0.3, 0.245]}>
+        <boxGeometry args={[0.52, 0.82, 0.004]} />
         <meshStandardMaterial color="#030C14" roughness={0.05} metalness={0.1} />
       </mesh>
       {/* Écran */}
-      <mesh position={[0, -0.38, 0.248]}>
-        <planeGeometry args={[0.52, 1.26]} />
+      <mesh position={[0, -0.3, 0.249]}>
+        <planeGeometry args={[0.48, 0.78]} />
         <primitive object={screenMat} />
       </mesh>
 
@@ -401,19 +397,19 @@ export default function CEDevice3D({ className = '' }: { className?: string }) {
           toneMappingExposure: 1.15,
           powerPreference: 'high-performance',
         }}
-        camera={{ position: [0, 0.3, 4.5], fov: 30 }}
+        camera={{ position: [0, 0.5, 6.5], fov: 36 }}
         dpr={Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)}
       >
         {/* Éclairage 3 points studio */}
-        <ambientLight intensity={0.55} />
+        <ambientLight intensity={0.8} />
         {/* Key light — haut droite */}
-        <directionalLight position={[2.5, 5, 3.5]} intensity={1.8} color="#ffffff" />
+        <directionalLight position={[2.5, 5, 4]} intensity={2.0} color="#ffffff" />
         {/* Fill light — gauche */}
-        <directionalLight position={[-3, 2, 2]} intensity={0.7} color="#c8d8e8" />
-        {/* Front light */}
-        <directionalLight position={[0, 1, 5]} intensity={0.5} color="#ffffff" />
-        {/* Rim light teal */}
-        <pointLight position={[-1.5, 3, -1]} color="#00D4AA" intensity={0.6} distance={6} />
+        <directionalLight position={[-3, 2, 3]} intensity={1.0} color="#d0e0f0" />
+        {/* Front fill */}
+        <directionalLight position={[0, 0, 6]} intensity={0.8} color="#ffffff" />
+        {/* Rim teal */}
+        <pointLight position={[-1.5, 3, -1]} color="#00D4AA" intensity={0.7} distance={8} />
 
         <Suspense fallback={null}>
           <QuitlyDevice />
