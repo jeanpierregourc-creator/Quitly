@@ -140,11 +140,11 @@ function QuitlyDevice() {
   })
 
   // ── MATÉRIAUX ──────────────────────────────────────────────
-  // Corps principal : dark chrome
+  // Corps principal : gris métallique clair
   const bodyMat = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#1A2530'),
-    metalness: 0.92,
-    roughness: 0.18,
+    color: new THREE.Color('#2E3E50'),
+    metalness: 0.85,
+    roughness: 0.25,
   }), [])
 
   // Anneaux chrome brillant
@@ -161,22 +161,22 @@ function QuitlyDevice() {
     roughness: 0.12,
   }), [])
 
-  // Verre externe tank
+  // Verre externe tank — plus visible
   const glassOuterMat = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#c8e8d8'),
+    color: new THREE.Color('#90c8b8'),
     transparent: true,
-    opacity: 0.22,
+    opacity: 0.38,
     roughness: 0.02,
-    metalness: 0.05,
+    metalness: 0.1,
     side: THREE.DoubleSide,
     depthWrite: false,
   }), [])
 
-  // Reflet interne verre (effet depth)
+  // Reflet interne verre
   const glassInnerMat = useMemo(() => new THREE.MeshStandardMaterial({
     color: new THREE.Color('#aad8c8'),
     transparent: true,
-    opacity: 0.08,
+    opacity: 0.15,
     roughness: 0,
     metalness: 0,
     side: THREE.BackSide,
@@ -317,13 +317,15 @@ function QuitlyDevice() {
         <meshStandardMaterial color="#5A6A7A" metalness={1} roughness={0.05} transparent opacity={0.6} />
       </mesh>
 
-      {/* Zone grip haut corps (texture horizontale) */}
-      {Array.from({ length: 10 }).map((_, i) => (
-        <mesh key={`grip-${i}`} position={[0, 0.82 - i * 0.085, 0.245]}>
-          <boxGeometry args={[0.64, 0.03, 0.005]} />
-          <primitive object={gripMat} />
-        </mesh>
-      ))}
+      {/* Zone grip haut corps — petits points discrets */}
+      {Array.from({ length: 4 }).map((_, row) =>
+        Array.from({ length: 7 }).map((_, col) => (
+          <mesh key={`grip-${row}-${col}`} position={[-0.24 + col * 0.08, 0.65 - row * 0.1, 0.245]}>
+            <boxGeometry args={[0.03, 0.03, 0.006]} />
+            <primitive object={gripMat} />
+          </mesh>
+        ))
+      )}
 
       {/* ══════════════════════════════════
           ÉCRAN OLED
@@ -403,15 +405,15 @@ export default function CEDevice3D({ className = '' }: { className?: string }) {
         dpr={Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)}
       >
         {/* Éclairage 3 points studio */}
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.55} />
         {/* Key light — haut droite */}
-        <directionalLight position={[2.5, 5, 3.5]} intensity={1.6} color="#ffffff" />
+        <directionalLight position={[2.5, 5, 3.5]} intensity={1.8} color="#ffffff" />
         {/* Fill light — gauche */}
-        <directionalLight position={[-3, 1, 2]} intensity={0.4} color="#aac8e0" />
-        {/* Back light — derrière */}
-        <directionalLight position={[0, -2, -3]} intensity={0.3} color="#004433" />
+        <directionalLight position={[-3, 2, 2]} intensity={0.7} color="#c8d8e8" />
+        {/* Front light */}
+        <directionalLight position={[0, 1, 5]} intensity={0.5} color="#ffffff" />
         {/* Rim light teal */}
-        <pointLight position={[-1.5, 3, -1]} color="#00D4AA" intensity={0.5} distance={6} />
+        <pointLight position={[-1.5, 3, -1]} color="#00D4AA" intensity={0.6} distance={6} />
 
         <Suspense fallback={null}>
           <QuitlyDevice />
