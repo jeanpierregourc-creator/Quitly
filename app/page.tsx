@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import CEDeviceRender from '@/components/ui/CEDeviceRender'
-import CEDevice3D from '@/components/ui/CEDevice3D'
+import CEDevice3DWrapper from '@/components/ui/CEDevice3DWrapper'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 function Testimonial({ quote, name, age, role }: { quote: string; name: string; age: number; role: string }) {
@@ -93,7 +93,7 @@ export default function HomePage() {
 
             <div className="flex justify-center lg:justify-end">
               <div className="animate-float">
-                <CEDevice3D className="drop-shadow-2xl" />
+                <CEDevice3DWrapper className="drop-shadow-2xl" />
               </div>
             </div>
           </div>
