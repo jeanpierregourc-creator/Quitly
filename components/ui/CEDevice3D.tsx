@@ -140,11 +140,11 @@ function QuitlyDevice() {
   })
 
   // ── MATÉRIAUX ──────────────────────────────────────────────
-  // Corps : gunmetal clair comme la photo
+  // Corps : gris métallique neutre
   const bodyMat = useMemo(() => new THREE.MeshStandardMaterial({
-    color: new THREE.Color('#4A5A6A'),
-    metalness: 0.82,
-    roughness: 0.3,
+    color: new THREE.Color('#606A75'),
+    metalness: 0.78,
+    roughness: 0.32,
   }), [])
 
   // Anneaux chrome brillant
@@ -272,18 +272,11 @@ function QuitlyDevice() {
         <cylinderGeometry args={[0.23, 0.23, 0.6, 24]} />
       </mesh>
 
-      {/* Coil central */}
+      {/* Tige centrale fine */}
       <mesh position={[0, 1.78, 0]}>
-        <cylinderGeometry args={[0.055, 0.055, 0.75, 12]} />
-        <meshStandardMaterial color="#0A1520" metalness={0.8} roughness={0.25} />
+        <cylinderGeometry args={[0.02, 0.02, 0.85, 10]} />
+        <meshStandardMaterial color="#1A2A2A" metalness={0.9} roughness={0.2} />
       </mesh>
-      {/* Spires coil */}
-      {[0,1,2,3,4,5,6].map(i => (
-        <mesh key={i} position={[0, 1.44 + i * 0.1, 0]}>
-          <torusGeometry args={[0.055, 0.008, 6, 16]} />
-          <meshStandardMaterial color="#3A4A3A" metalness={0.9} roughness={0.2} />
-        </mesh>
-      ))}
 
       {/* LED teal anneau haut tank */}
       <mesh position={[0, 2.28, 0]} material={tealMat}>
@@ -303,8 +296,8 @@ function QuitlyDevice() {
       ══════════════════════════════════ */}
       <RoundedBox
         args={[0.76, 2.3, 0.48]}
-        radius={0.055}
-        smoothness={4}
+        radius={0.13}
+        smoothness={5}
         position={[0, 0, 0]}
         material={bodyMat}
         castShadow
@@ -317,11 +310,6 @@ function QuitlyDevice() {
         <meshStandardMaterial color="#5A6A7A" metalness={1} roughness={0.05} transparent opacity={0.6} />
       </mesh>
 
-      {/* Zone grip haut corps — ligne subtile */}
-      <mesh position={[0, 0.72, 0.245]}>
-        <boxGeometry args={[0.55, 0.002, 0.003]} />
-        <meshStandardMaterial color="#00D4AA" emissive="#00D4AA" emissiveIntensity={0.8} />
-      </mesh>
 
       {/* ══════════════════════════════════
           ÉCRAN OLED — taille réduite
@@ -353,13 +341,6 @@ function QuitlyDevice() {
         <cylinderGeometry args={[0.042, 0.042, 0.05, 14]} />
       </mesh>
 
-      {/* ══════════════════════════════════
-          LOQUET (front, zone distincte)
-      ══════════════════════════════════ */}
-      <mesh position={[0, 0.72, 0.248]}>
-        <boxGeometry args={[0.52, 0.08, 0.002]} />
-        <meshStandardMaterial color="#00D4AA" emissive="#00D4AA" emissiveIntensity={0.5} transparent opacity={0.7} />
-      </mesh>
 
       {/* ══════════════════════════════════
           BANDE TEAL BAS
