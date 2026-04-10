@@ -284,14 +284,14 @@ function QuitlyDevice() {
           ANNEAU CHROME HAUT
       ══════════════════════════════════ */}
       <mesh position={[0, 2.33, 0]} material={chromeMat} castShadow>
-        <cylinderGeometry args={[0.33, 0.33, 0.08, 32]} />
+        <cylinderGeometry args={[0.25, 0.25, 0.08, 32]} />
       </mesh>
 
       {/* ══════════════════════════════════
           TANK — cylindre unicolore teal
       ══════════════════════════════════ */}
       <mesh position={[0, 1.78, 0]}>
-        <cylinderGeometry args={[0.3, 0.3, 1.0, 32]} />
+        <cylinderGeometry args={[0.22, 0.22, 1.0, 32]} />
         <meshStandardMaterial
           color={new THREE.Color('#00B890')}
           metalness={0.1}
@@ -300,30 +300,25 @@ function QuitlyDevice() {
           opacity={0.92}
         />
       </mesh>
-      {/* Reflet avant tank */}
-      <mesh position={[0.06, 1.78, 0.28]}>
-        <planeGeometry args={[0.08, 0.85]} />
-        <meshStandardMaterial color="#ffffff" transparent opacity={0.07} />
-      </mesh>
       {/* Disque chrome haut */}
       <mesh position={[0, 2.29, 0]} material={chromeMat}>
-        <cylinderGeometry args={[0.31, 0.31, 0.04, 32]} />
+        <cylinderGeometry args={[0.23, 0.23, 0.04, 32]} />
       </mesh>
       {/* Disque chrome bas */}
       <mesh position={[0, 1.27, 0]} material={chromeMat}>
-        <cylinderGeometry args={[0.31, 0.31, 0.04, 32]} />
+        <cylinderGeometry args={[0.23, 0.23, 0.04, 32]} />
       </mesh>
 
       {/* LED teal anneau haut tank */}
       <mesh position={[0, 2.28, 0]} material={tealMat}>
-        <torusGeometry args={[0.29, 0.016, 6, 32]} />
+        <torusGeometry args={[0.22, 0.014, 6, 32]} />
       </mesh>
 
       {/* ══════════════════════════════════
           ANNEAU CHROME BAS TANK
       ══════════════════════════════════ */}
       <mesh position={[0, 1.22, 0]} material={chromeMat} castShadow>
-        <cylinderGeometry args={[0.37, 0.37, 0.1, 32]} />
+        <cylinderGeometry args={[0.27, 0.27, 0.1, 32]} />
       </mesh>
 
       {/* ══════════════════════════════════
@@ -331,8 +326,8 @@ function QuitlyDevice() {
           Rectangulaire arrondi comme la photo
       ══════════════════════════════════ */}
       <RoundedBox
-        args={[0.76, 2.3, 0.48]}
-        radius={0.13}
+        args={[0.58, 2.3, 0.38]}
+        radius={0.11}
         smoothness={5}
         position={[0, 0, 0]}
         material={bodyMat}
@@ -341,8 +336,8 @@ function QuitlyDevice() {
       />
 
       {/* Reflet latéral gauche (chrome edge) */}
-      <mesh position={[-0.38, 0, 0]}>
-        <boxGeometry args={[0.008, 2.3, 0.48]} />
+      <mesh position={[-0.29, 0, 0]}>
+        <boxGeometry args={[0.008, 2.3, 0.38]} />
         <meshStandardMaterial color="#5A6A7A" metalness={1} roughness={0.05} transparent opacity={0.6} />
       </mesh>
 
@@ -351,13 +346,13 @@ function QuitlyDevice() {
           ÉCRAN OLED — taille réduite
       ══════════════════════════════════ */}
       {/* Cadre écran */}
-      <mesh position={[0, -0.3, 0.245]}>
-        <boxGeometry args={[0.52, 0.82, 0.004]} />
+      <mesh position={[0, -0.3, 0.195]}>
+        <boxGeometry args={[0.42, 0.76, 0.004]} />
         <meshStandardMaterial color="#030C14" roughness={0.05} metalness={0.1} />
       </mesh>
       {/* Écran */}
-      <mesh position={[0, -0.3, 0.249]}>
-        <planeGeometry args={[0.48, 0.78]} />
+      <mesh position={[0, -0.3, 0.198]}>
+        <planeGeometry args={[0.38, 0.72]} />
         <primitive object={screenMat} />
       </mesh>
 
@@ -365,16 +360,16 @@ function QuitlyDevice() {
           BOUTONS DROITE (ronds comme la photo)
       ══════════════════════════════════ */}
       {/* Bouton principal */}
-      <mesh position={[0.4, 0.55, 0]} rotation={[0, 0, Math.PI / 2]} material={btnMat} castShadow>
-        <cylinderGeometry args={[0.055, 0.055, 0.055, 16]} />
+      <mesh position={[0.31, 0.55, 0]} rotation={[0, 0, Math.PI / 2]} material={btnMat} castShadow>
+        <cylinderGeometry args={[0.048, 0.048, 0.05, 16]} />
       </mesh>
       {/* Bouton + */}
-      <mesh position={[0.4, 0.22, 0]} rotation={[0, 0, Math.PI / 2]} material={btnMat} castShadow>
-        <cylinderGeometry args={[0.042, 0.042, 0.05, 14]} />
+      <mesh position={[0.31, 0.22, 0]} rotation={[0, 0, Math.PI / 2]} material={btnMat} castShadow>
+        <cylinderGeometry args={[0.036, 0.036, 0.045, 14]} />
       </mesh>
       {/* Bouton - */}
-      <mesh position={[0.4, -0.05, 0]} rotation={[0, 0, Math.PI / 2]} material={btnMat} castShadow>
-        <cylinderGeometry args={[0.042, 0.042, 0.05, 14]} />
+      <mesh position={[0.31, -0.05, 0]} rotation={[0, 0, Math.PI / 2]} material={btnMat} castShadow>
+        <cylinderGeometry args={[0.036, 0.036, 0.045, 14]} />
       </mesh>
 
 
@@ -382,7 +377,7 @@ function QuitlyDevice() {
           BANDE TEAL BAS
       ══════════════════════════════════ */}
       <mesh position={[0, -1.13, 0]} material={tealMat}>
-        <boxGeometry args={[0.76, 0.012, 0.48]} />
+        <boxGeometry args={[0.58, 0.012, 0.38]} />
       </mesh>
 
       {/* USB-C */}
