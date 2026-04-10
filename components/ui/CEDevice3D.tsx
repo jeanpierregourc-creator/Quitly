@@ -7,96 +7,127 @@ import * as THREE from 'three'
 
 function useScreenTexture() {
   return useMemo(() => {
+    const W = 512, H = 720
     const canvas = document.createElement('canvas')
-    canvas.width = 300
-    canvas.height = 420
+    canvas.width = W
+    canvas.height = H
     const ctx = canvas.getContext('2d')!
 
-    // Fond OLED noir profond
+    // Fond noir
     ctx.fillStyle = '#020A10'
-    ctx.fillRect(0, 0, 300, 420)
+    ctx.fillRect(0, 0, W, H)
 
-    // Bordure teal subtile
-    ctx.strokeStyle = 'rgba(0,212,170,0.5)'
-    ctx.lineWidth = 2
-    ctx.roundRect(3, 3, 294, 414, 8)
+    // Bordure teal
+    ctx.strokeStyle = 'rgba(0,212,170,0.6)'
+    ctx.lineWidth = 3
+    ctx.roundRect(4, 4, W - 8, H - 8, 12)
     ctx.stroke()
 
-    // Ligne séparation haut
-    ctx.strokeStyle = 'rgba(0,212,170,0.25)'
-    ctx.lineWidth = 1
-    ctx.beginPath(); ctx.moveTo(16, 68); ctx.lineTo(284, 68); ctx.stroke()
+    // ── BOUFFÉES (grand, centré) ──
+    ctx.fillStyle = 'rgba(0,212,170,0.12)'
+    ctx.fillRect(0, 0, W, H * 0.52)
 
-    // Logo
     ctx.fillStyle = '#00D4AA'
-    ctx.font = 'bold 24px monospace'
+    ctx.font = 'bold 36px monospace'
     ctx.textAlign = 'center'
     ctx.shadowColor = '#00D4AA'
-    ctx.shadowBlur = 8
-    ctx.fillText('QUITLY', 150, 48)
+    ctx.shadowBlur = 14
+    ctx.fillText('BOUFFÉES', W / 2, 58)
     ctx.shadowBlur = 0
 
-    // Grand chiffre
     ctx.fillStyle = '#FFFFFF'
-    ctx.font = 'bold 96px monospace'
-    ctx.shadowColor = 'rgba(255,255,255,0.3)'
-    ctx.shadowBlur = 12
-    ctx.fillText('100', 150, 178)
+    ctx.font = 'bold 160px monospace'
+    ctx.shadowColor = 'rgba(255,255,255,0.4)'
+    ctx.shadowBlur = 20
+    ctx.fillText('100', W / 2, 210)
     ctx.shadowBlur = 0
 
-    // Label
     ctx.fillStyle = '#8A9BAE'
-    ctx.font = '500 17px system-ui'
-    ctx.letterSpacing = '3px'
-    ctx.fillText('BOUFFÉES', 150, 208)
+    ctx.font = 'bold 28px monospace'
+    ctx.fillText('/ 500 aujourd\'hui', W / 2, 258)
 
-    // Séparateur
-    ctx.strokeStyle = 'rgba(0,212,170,0.15)'
-    ctx.beginPath(); ctx.moveTo(16, 228); ctx.lineTo(284, 228); ctx.stroke()
-
-    // Barre progression background
+    // Barre progression
     ctx.fillStyle = '#0D1824'
-    ctx.beginPath(); ctx.roundRect(16, 240, 268, 14, 7); ctx.fill()
-    // Barre progression fill
-    const grad = ctx.createLinearGradient(16, 0, 284, 0)
-    grad.addColorStop(0, '#00D4AA')
-    grad.addColorStop(1, '#00A88A')
-    ctx.fillStyle = grad
-    ctx.beginPath(); ctx.roundRect(16, 240, 168, 14, 7); ctx.fill()
-
-    // Stats ligne
-    ctx.fillStyle = '#8A9BAE'
-    ctx.font = '14px monospace'
-    ctx.textAlign = 'left'
-    ctx.fillText('REST: 400', 16, 278)
-    ctx.fillStyle = '#00D4AA'
-    ctx.textAlign = 'right'
-    ctx.fillText('30W', 284, 278)
+    ctx.beginPath(); ctx.roundRect(30, 278, W - 60, 20, 10); ctx.fill()
+    const g = ctx.createLinearGradient(30, 0, W - 30, 0)
+    g.addColorStop(0, '#00D4AA'); g.addColorStop(1, '#00A88A')
+    ctx.fillStyle = g
+    ctx.beginPath(); ctx.roundRect(30, 278, (W - 60) * 0.62, 20, 10); ctx.fill()
 
     // Séparateur
-    ctx.strokeStyle = 'rgba(0,212,170,0.12)'
-    ctx.beginPath(); ctx.moveTo(16, 296); ctx.lineTo(284, 296); ctx.stroke()
+    ctx.strokeStyle = 'rgba(0,212,170,0.2)'
+    ctx.lineWidth = 1
+    ctx.beginPath(); ctx.moveTo(30, 320); ctx.lineTo(W - 30, 320); ctx.stroke()
 
-    // Lock
+    // ── WATTS ──
+    ctx.fillStyle = '#FFFFFF'
+    ctx.font = 'bold 72px monospace'
+    ctx.textAlign = 'left'
+    ctx.shadowColor = 'rgba(255,255,255,0.2)'
+    ctx.shadowBlur = 8
+    ctx.fillText('30', 45, 400)
+    ctx.shadowBlur = 0
     ctx.fillStyle = '#00D4AA'
-    ctx.font = 'bold 15px monospace'
+    ctx.font = 'bold 30px monospace'
+    ctx.fillText('W', 130, 400)
+    ctx.fillStyle = '#8A9BAE'
+    ctx.font = '22px monospace'
+    ctx.fillText('WATTS', 45, 430)
+
+    // Séparateur vertical
+    ctx.strokeStyle = 'rgba(0,212,170,0.2)'
+    ctx.lineWidth = 1
+    ctx.beginPath(); ctx.moveTo(W / 2, 330); ctx.lineTo(W / 2, 460); ctx.stroke()
+
+    // ── BATTERIE ──
+    ctx.fillStyle = '#FFFFFF'
+    ctx.font = 'bold 72px monospace'
+    ctx.textAlign = 'right'
+    ctx.shadowColor = 'rgba(255,255,255,0.2)'
+    ctx.shadowBlur = 8
+    ctx.fillText('72', W - 90, 400)
+    ctx.shadowBlur = 0
+    ctx.fillStyle = '#00D4AA'
+    ctx.font = 'bold 30px monospace'
+    ctx.fillText('%', W - 45, 400)
+    ctx.fillStyle = '#8A9BAE'
+    ctx.font = '22px monospace'
+    ctx.fillText('BATT.', W - 45, 430)
+
+    // Séparateur bas
+    ctx.strokeStyle = 'rgba(0,212,170,0.2)'
+    ctx.lineWidth = 1
+    ctx.beginPath(); ctx.moveTo(30, 470); ctx.lineTo(W - 30, 470); ctx.stroke()
+
+    // ── NICOTINE + PHASE ──
+    ctx.fillStyle = '#8A9BAE'
+    ctx.font = '24px monospace'
+    ctx.textAlign = 'left'
+    ctx.fillText('NICOTINE', 45, 510)
+    ctx.fillStyle = '#FFFFFF'
+    ctx.font = 'bold 36px monospace'
+    ctx.fillText('6 mg', 45, 548)
+
+    ctx.fillStyle = '#8A9BAE'
+    ctx.font = '24px monospace'
+    ctx.textAlign = 'right'
+    ctx.fillText('PHASE', W - 45, 510)
+    ctx.fillStyle = '#00D4AA'
+    ctx.font = 'bold 36px monospace'
+    ctx.fillText('2 / 3', W - 45, 548)
+
+    // ── LOCK ──
+    ctx.fillStyle = '#00D4AA'
+    ctx.font = 'bold 26px monospace'
     ctx.textAlign = 'center'
     ctx.shadowColor = '#00D4AA'
-    ctx.shadowBlur = 6
-    ctx.fillText('⚡ LOCK™ ACTIF', 150, 330)
+    ctx.shadowBlur = 10
+    ctx.fillText('⚡ LOCK™  ACTIF', W / 2, 620)
     ctx.shadowBlur = 0
 
-    // Phase
     ctx.fillStyle = '#8A9BAE'
-    ctx.font = '13px monospace'
-    ctx.fillText('Phase 2/3  ·  J21', 150, 365)
-
-    // Batterie
-    ctx.fillStyle = '#2A3A4A'
-    ctx.beginPath(); ctx.roundRect(100, 380, 100, 22, 4); ctx.fill()
-    ctx.fillStyle = '#00D4AA'
-    ctx.font = '12px monospace'
-    ctx.fillText('72% ⚡', 150, 396)
+    ctx.font = '22px monospace'
+    ctx.fillText('J21 · Programme J+21', W / 2, 660)
 
     return new THREE.CanvasTexture(canvas)
   }, [])
@@ -230,13 +261,23 @@ function QuitlyDevice() {
     <group ref={groupRef} position={[0, -0.1, 0]}>
 
       {/* ══════════════════════════════════
-          MOUTHPIECE
+          EMBOUT (mouthpiece) — forme ergonomique
       ══════════════════════════════════ */}
-      <mesh position={[0, 2.58, 0]} material={mouthMat} castShadow>
-        <cylinderGeometry args={[0.08, 0.14, 0.12, 18]} />
+      {/* Base évasée */}
+      <mesh position={[0, 2.42, 0]} material={mouthMat} castShadow>
+        <cylinderGeometry args={[0.18, 0.24, 0.1, 24]} />
       </mesh>
-      <mesh position={[0, 2.48, 0]} material={mouthMat} castShadow>
-        <cylinderGeometry args={[0.14, 0.2, 0.16, 20]} />
+      {/* Col resserré */}
+      <mesh position={[0, 2.54, 0]} material={mouthMat} castShadow>
+        <cylinderGeometry args={[0.12, 0.18, 0.14, 24]} />
+      </mesh>
+      {/* Tête arrondie */}
+      <mesh position={[0, 2.66, 0]} material={mouthMat} castShadow>
+        <cylinderGeometry args={[0.09, 0.12, 0.1, 20]} />
+      </mesh>
+      {/* Sommet hémisphère */}
+      <mesh position={[0, 2.73, 0]} material={mouthMat} castShadow>
+        <sphereGeometry args={[0.09, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2]} />
       </mesh>
 
       {/* ══════════════════════════════════
@@ -247,35 +288,30 @@ function QuitlyDevice() {
       </mesh>
 
       {/* ══════════════════════════════════
-          TANK VERRE — double paroi
+          TANK — cylindre unicolore teal
       ══════════════════════════════════ */}
-      {/* Paroi externe */}
-      <mesh position={[0, 1.78, 0]} material={glassOuterMat}>
-        <cylinderGeometry args={[0.3, 0.3, 1.0, 32]} />
-      </mesh>
-      {/* Paroi interne (effet profondeur) */}
-      <mesh position={[0, 1.78, 0]} material={glassInnerMat}>
-        <cylinderGeometry args={[0.28, 0.28, 0.96, 32]} />
-      </mesh>
-
-      {/* Disque haut tank */}
-      <mesh position={[0, 2.29, 0]} material={chromeMat}>
-        <cylinderGeometry args={[0.31, 0.31, 0.03, 32]} />
-      </mesh>
-      {/* Disque bas tank */}
-      <mesh position={[0, 1.28, 0]} material={chromeMat}>
-        <cylinderGeometry args={[0.31, 0.31, 0.03, 32]} />
-      </mesh>
-
-      {/* Liquide (60% plein) */}
-      <mesh position={[0, 1.6, 0]} material={liquidMat}>
-        <cylinderGeometry args={[0.23, 0.23, 0.6, 24]} />
-      </mesh>
-
-      {/* Tige centrale fine */}
       <mesh position={[0, 1.78, 0]}>
-        <cylinderGeometry args={[0.02, 0.02, 0.85, 10]} />
-        <meshStandardMaterial color="#1A2A2A" metalness={0.9} roughness={0.2} />
+        <cylinderGeometry args={[0.3, 0.3, 1.0, 32]} />
+        <meshStandardMaterial
+          color={new THREE.Color('#00B890')}
+          metalness={0.1}
+          roughness={0.25}
+          transparent
+          opacity={0.92}
+        />
+      </mesh>
+      {/* Reflet avant tank */}
+      <mesh position={[0.06, 1.78, 0.28]}>
+        <planeGeometry args={[0.08, 0.85]} />
+        <meshStandardMaterial color="#ffffff" transparent opacity={0.07} />
+      </mesh>
+      {/* Disque chrome haut */}
+      <mesh position={[0, 2.29, 0]} material={chromeMat}>
+        <cylinderGeometry args={[0.31, 0.31, 0.04, 32]} />
+      </mesh>
+      {/* Disque chrome bas */}
+      <mesh position={[0, 1.27, 0]} material={chromeMat}>
+        <cylinderGeometry args={[0.31, 0.31, 0.04, 32]} />
       </mesh>
 
       {/* LED teal anneau haut tank */}
