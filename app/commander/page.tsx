@@ -94,9 +94,9 @@ export default function CommanderPage() {
               <h3 className="text-sm font-semibold mb-3 uppercase tracking-widest" style={{ color: '#8A9BAE' }}>Liquides supplémentaires</h3>
               <div className="space-y-3">
                 {[
-                  { name: 'Liquide Menthe Glaciale', mg: '6mg · 10ml', price: '12 €', color: '#00D4AA' },
-                  { name: 'Liquide Tabac Blond', mg: '12mg · 10ml', price: '12 €', color: '#B8860B' },
-                  { name: 'Liquide Fruits Rouges', mg: '3mg · 10ml', price: '12 €', color: '#DC143C' },
+                  { name: 'Liquide Menthe Glaciale', mg: '6mg · 10ml', price: '6 €', color: '#00D4AA' },
+                  { name: 'Liquide Tabac Blond', mg: '12mg · 10ml', price: '6 €', color: '#B8860B' },
+                  { name: 'Liquide Fruits Rouges', mg: '3mg · 10ml', price: '6 €', color: '#DC143C' },
                 ].map((liquid, i) => (
                   <div key={i} className="flex items-center justify-between p-4 rounded-xl" style={{ backgroundColor: '#1A2430', border: '1px solid #2A3A4A' }}>
                     <div className="flex items-center gap-3">
@@ -107,6 +107,36 @@ export default function CommanderPage() {
                       </div>
                     </div>
                     <span className="text-sm font-bold" style={{ color: '#00D4AA' }}>{liquid.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Résistances */}
+            <div>
+              <h3 className="text-sm font-semibold mb-3 uppercase tracking-widest" style={{ color: '#8A9BAE' }}>Résistances</h3>
+              <div className="space-y-3">
+                {[
+                  { name: 'Résistance 0.4Ω Mesh', sub: 'Saveur optimale · 25-35W', price: '4 €', badge: 'Recommandée' },
+                  { name: 'Résistance 0.6Ω MTL', sub: 'Tirage serré · 12-20W', price: '4 €', badge: null },
+                  { name: 'Pack 5 résistances 0.4Ω', sub: 'Le plus populaire · Économique', price: '16 €', badge: 'Pack' },
+                ].map((r, i) => (
+                  <div key={i} className="flex items-center justify-between p-4 rounded-xl" style={{ backgroundColor: '#1A2430', border: '1px solid #2A3A4A' }}>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(0,212,170,0.1)', border: '1px solid rgba(0,212,170,0.3)' }}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" strokeWidth="2">
+                          <circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium" style={{ color: '#E8EDF2' }}>{r.name}</span>
+                          {r.badge && <span className="text-xs px-1.5 py-0.5 rounded font-medium" style={{ backgroundColor: 'rgba(0,212,170,0.15)', color: '#00D4AA' }}>{r.badge}</span>}
+                        </div>
+                        <div className="text-xs" style={{ color: '#8A9BAE' }}>{r.sub}</div>
+                      </div>
+                    </div>
+                    <span className="text-sm font-bold" style={{ color: '#00D4AA' }}>{r.price}</span>
                   </div>
                 ))}
               </div>
