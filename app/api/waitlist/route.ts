@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { createClient } from '@supabase/supabase-js'
+import { supabaseAdmin } from '@/lib/supabase'
 
 // Schéma Zod — validation stricte des données entrantes
 const waitlistSchema = z.object({
@@ -35,14 +35,8 @@ export async function POST(request: NextRequest) {
 
     const { email, name, source } = result.data
 
-    // Initialisation du client Supabase au moment de l'appel (pas au chargement du module)
-    const supabase = createClient(
-      'https://kcxmjdsyuxjdjbgogdmg.supabase.co',
-      'sb_publishable_pMdy4eDOB0zTD2-yPXL60g_Vv-itFkI'
-    )
-
-    // Vérifier si l'email est déjà inscrit
-    const { data: existing } = await supabase
+    // Vérifier si l'email est déjà inscrit (via service_role pour bypasser le RLS en lecture)
+    const { data: existing } = await supabaseAdmin
       .from('waitlist')
       .select('email')
       .eq('email', email)
@@ -53,7 +47,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Sauvegarder en Supabase
-    const { error: insertError } = await supabase
+    const { error: insertError } = await supabaseAdmin
       .from('waitlist')
       .insert({ email, name, source: source ?? 'site' })
 

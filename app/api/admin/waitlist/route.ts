@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { supabaseAdmin } from '@/lib/supabase'
 
 export async function GET(request: NextRequest) {
   // Vérification admin basique via header
@@ -8,12 +8,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Non autorisé' }, { status: 401 })
   }
 
-  const supabase = createClient(
-    'https://kcxmjdsyuxjdjbgogdmg.supabase.co',
-    'sb_publishable_pMdy4eDOB0zTD2-yPXL60g_Vv-itFkI'
-  )
-
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from('waitlist')
     .select('*')
     .order('created_at', { ascending: false })
